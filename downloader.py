@@ -21,12 +21,15 @@ def download(folder, key, volume):
     for i in range(1, 1000):
         page = ("%04d" % (i)) + ".jpg"
         url = baseUrl + page
+        fileName = folder+"/"+"V-"+str(volume)+"/"+page
+        if os.path.exists(fileName) == True:
+            continue
         print url
         try:
             request = urllib2.Request(url)
             response = urllib2.urlopen(request)  
             downloaded = response.read()
-            f = open(folder+"/"+"V-"+str(volume)+"/"+page, "wb")
+            f = open(fileName, "wb")
             f.write(downloaded)
             f.close()
         except Exception, e:
