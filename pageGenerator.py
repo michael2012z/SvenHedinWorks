@@ -20,10 +20,13 @@ pageContent += "<br/>"
 pageContent += "<h1><font color=white size=7>" + "Works of Sven Hedin" + "</font></h1>\r\n"
 pageContent += "<br/>"
 
+# portrait
+pageContent += "<div>"
+pageContent += "<img width=300 src=" + siteUrl
+pageContent += "portrait.jpg"
+pageContent += "></img>"
+pageContent += "</div>\r\n"
 
-pageContent += "</center>\r\n"
-pageContent += "</body>"
-pageContent += "</html>"
 
 # data struct:
 # [title, url, description, [[v-1, v-description], [v-2, v-desc], ...]]
@@ -117,17 +120,17 @@ bookVolume.append([12, volumeDescription])
 
 
 for bookData in booksData:
-        pageContent += "<br/>"
-        pageContent += "<h2><font color=white size=7>" + bookData[0] + "</font></h2>\r\n"
-        pageContent += "<br/>"
+    pageContent += "<br/>"
+    pageContent += "<h2><font color=white size=6>" + bookData[0] + "</font></h2>\r\n"
+    for volumeData in bookData[3]:
         pageContent += "<div>"
         pageContent += "<a target=\"_blank\" href=\"" + siteUrl
-        pageContent += bookData[1] + "\\" + "V-" + str(bookData[3][1])
+        pageContent += bookData[1] + "\\" + "V-" + str(volumeData[0])
         pageContent += ".html" + "\">"
-        pageContent += "<h2><font color=white size=7>" + "Volume " + str(bookData[3][0]) + "</font></h2>\r\n"
+        pageContent += "<h2><font color=white size=5>" + "Volume " + str(volumeData[0]) + "</font></h2>\r\n"
         pageContent += "</a>"
         pageContent += "</div>\r\n"
-        pageContent += "<br/>"
+    pageContent += "<br/>"
 
 
 pageContent += "</center>\r\n"
